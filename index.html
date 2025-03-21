@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Uni-3DAR: Unified 3D Generation and Understanding via Autoregression on Compressed Spatial Tokens">
+  <meta name="keywords" content="3D generation, Auto-regressive, Molecules">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Shuqi Lu, Haowei Lin, Lin Yao, Zhifeng Gao, Xiaohong Ji, Weinan E, Linfeng Zhang, Guolin Ke">
+  <title>Uni-3DAR: Unified 3D Generation and Understanding via Autoregression on Compressed Spatial Tokens</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+      <div class="navbar-brand">
+        <button class="navbar-burger" aria-label="Toggle navigation" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <!-- Additional navbar items can be added here -->
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Uni-3DAR: Unified 3D Generation and Understanding via Autoregression on Compressed Spatial Tokens
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="#">Shuqi Lu</a><sup>1</sup><sup>†</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://linhaowei1.github.io/">Haowei Lin</a><sup>3</sup><sup>†</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#">Lin Yao</a><sup>1</sup><sup>†</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=uBo3SJcAAAAJ">Zhifeng Gao</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#">Xiaohong Ji</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://web.math.princeton.edu/~weinan/">Weinan E</a><sup>2,3</sup><sup>*</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=jk7qwmcAAAAJ&hl=zh-CN&oi=ao">Linfeng Zhang</a><sup>1,2</sup><sup>*</sup>
+                </span>
+                <span class="author-block">
+                  <a href="https://guolinke.github.io/">Guolin Ke</a><sup>1,2</sup><sup>*</sup>
+                </span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>DP Technology,</span>
+                <span class="author-block"><sup>2</sup>AISI,</span>
+                <span class="author-block"><sup>3</sup>Peking University</span>
+              </div>
+              <div class="publication-footnotes">
+                <p><small>† These authors contributed equally to this work.</small></p>
+                <p><small>* Corresponding authors.</small></p>
+              </div>
+              <div class="publication-links">
+                <a href="https://arxiv.org/pdf/2503.16278" class="external-link button is-normal is-rounded is-dark" title="View PDF">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+                <a href="https://arxiv.org/abs/2503.16278" class="external-link button is-normal is-rounded is-dark" title="View on arXiv">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+                <a href="https://github.com/google/nerfies" class="external-link button is-normal is-rounded is-dark" title="View Code">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaser Section -->
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="./static/images/overview.png" alt="Schematic illustration of the Uni-3DAR framework">
+          <h2 class="subtitle has-text-centered">
+            Schematic illustration of the Uni-3DAR framework.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract Section -->
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Recent advancements in large language models and their multi-modal extensions have demonstrated the effectiveness of unifying generation and understanding through autoregressive next-token prediction. However, despite the critical role of 3D structural generation and understanding (3D GU) in AI for science, these tasks have largely evolved independently, with autoregressive methods remaining underexplored. To bridge this gap, we introduce Uni-3DAR, a unified framework that seamlessly integrates 3D GU tasks via autoregressive prediction. At its core, Uni-3DAR employs a novel hierarchical tokenization that compresses 3D space using an octree, leveraging the inherent sparsity of 3D structures. It then applies an additional tokenization for fine-grained structural details, capturing key attributes such as atom types and precise spatial coordinates in microscopic 3D structures. We further propose two optimizations to enhance efficiency and effectiveness. The first is a two-level subtree compression strategy, which reduces the octree token sequence by up to 8x. The second is a masked next-token prediction mechanism tailored for dynamically varying token positions, significantly boosting model performance. By combining these strategies, Uni-3DAR successfully unifies diverse 3D GU tasks within a single autoregressive framework. Extensive experiments across multiple microscopic 3D GU tasks, including molecules, proteins, polymers, and crystals, validate its effectiveness and versatility. Notably, Uni-3DAR surpasses previous state-of-the-art diffusion models by a substantial margin, achieving up to 256% relative improvement while delivering inference speeds up to 21.8x faster.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+<section class="section" id="overview">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Overview of Uni-3DAR</h2>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-full has-text-centered">
+        <figure class="image mb-5">
+          <img src="./static/images/uni3d-one(a).png" alt="Adaptive coarse‑to‑fine subdivision of grid cells; darker nodes indicate non‑empty cells eligible for further partitioning" style="max-width:90%; display:block; margin:0 auto;">
+          <figcaption>
+            (a) Adaptive coarse‑to‑fine subdivision of grid cells; darker nodes indicate non‑empty cells eligible for further partitioning.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="column is-full has-text-centered">
+        <figure class="image mb-5">
+          <img src="./static/images/uni3d-one(b).png" alt="Partitioning builds an octree, offering lossless compression of the full‑size 3D grid" style="max-width:90%; display:block; margin:0 auto;">
+          <figcaption>
+            (b) Partitioning builds an octree, offering lossless compression of the full‑size 3D grid.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="column is-full has-text-centered">
+        <figure class="image mb-5">
+          <img src="./static/images/uni3d-one(c).png" alt="Uni‑3DAR’s tokenization couples hierarchical spatial compression with fine‑grained structural tokens" style="max-width:90%; display:block; margin:0 auto;">
+          <figcaption>
+            (c) Uni‑3DAR’s tokenization couples hierarchical spatial compression (octree) with fine‑grained structural tokens, each located by tree level + cell center.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="column is-full has-text-centered">
+        <figure class="image mb-5">
+          <img src="./static/images/uni3d-one(d).png" alt="2‑level subtree compression further reduces octree tokens up to 8× (4× in a 2D quadtree example)" style="max-width:90%; display:block; margin:0 auto;">
+          <figcaption>
+            (d) 2‑level subtree compression further reduces octree tokens up to 8× (4× in this 2D quadtree example).
+          </figcaption>
+        </figure>
+      </div>
+      <div class="column is-full has-text-centered">
+        <figure class="image">
+          <img src="./static/images/uni3d-one(e).png" alt="Masked next‑token prediction handles dynamically shifting token positions" style="max-width:90%; display:block; margin:0 auto;">
+          <figcaption>
+            (e) Masked next‑token prediction handles dynamically shifting token positions; unified framework integrates generation and understanding in one model.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <!-- Results Section -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/unconditional_molecular_generation.png" alt="Unconditional Molecular Generation Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>Unconditional Molecular Generation Results</figcaption>
+        </figure>
+      </div>
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/de_novo_crystal_generation.png" alt="De Novo Crystal Generation Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>De Novo Crystal Generation Results</figcaption>
+        </figure>
+      </div>
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/crystal_structure_prediction.png" alt="Crystal Structure Prediction Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>Crystal Structure Prediction Results</figcaption>
+        </figure>
+      </div>
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/binding_site.png" alt="Binding Site Prediction Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>Binding Site Prediction Results</figcaption>
+        </figure>
+      </div>
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/docking.png" alt="Docking Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>Docking Results</figcaption>
+        </figure>
+      </div>
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/molecular_property_prediction.png" alt="Molecular Property Prediction Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>Molecular Property Prediction Results</figcaption>
+        </figure>
+      </div>
+      <div class="column is-full">
+        <figure class="image has-text-centered">
+          <img src="./static/images/polymer_property_prediction.png" alt="Polymer Property Prediction Results" style="width:75%; display:block; margin:0 auto;">
+          <figcaption>Polymer Property Prediction Results</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- BibTeX Section -->
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{lu2025uni3dar,
+  author    = {Shuqi Lu and Haowei Lin and Lin Yao and Zhifeng Gao and Xiaohong Ji and Weinan E and Linfeng Zhang and Guolin Ke},
+  title     = {Uni-3DAR: Unified 3D Generation and Understanding via Autoregression on Compressed Spatial Tokens},
+  journal   = {Arxiv},
+  year      = {2025},
+}</code></pre>
+      </div>
+    </section>
+
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>&copy; This page was built using the Academic Project Page Template which was adopted from the Nerfies project page.</p>
+    </div>
+  </footer>
+</body>
+</html>
